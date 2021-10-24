@@ -27,7 +27,7 @@ class App extends Component {
                 </div>
 
                 {/* 底部的渲染区 */}
-                <div className="my-router">
+                <div className="mid-router">
                     <MyRouter />
                 </div>
             </div>

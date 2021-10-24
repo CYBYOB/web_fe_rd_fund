@@ -89,7 +89,7 @@ class MyRouter extends Component {
                     })
                 }
                 {/* 匹配不到，重定向至 首页 */}
-                <Redirect from="/" to="/home"></Redirect>
+                {/* <Redirect from="/" to="/home"></Redirect> */}
             </div>
         )
     }

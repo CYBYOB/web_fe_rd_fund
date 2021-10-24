@@ -18,14 +18,24 @@ class MyMenu extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentLink: LINK.Home
+            currentLink: ''
         };
     }
 
     // 菜单link 变更
     currentLinkChange = (e) => {
-        this.setState({ currentLink: e.key });
+        this.setState({
+            currentLink: e.key
+        });
     };
+
+    // 要渲染时，根据 URL 情况进行设置 currentLink
+    componentDidMount() {
+        const {pathname} = window.location;
+        this.setState({
+            currentLink: pathname
+        });
+    }
     
     render() {
         const { currentLink } = this.state;
@@ -52,7 +62,7 @@ class MyMenu extends Component {
                         </Menu.Item>
                     </SubMenu>
 
-                    <SubMenu key="data-api" title="策略回测">
+                    <SubMenu key="data-api" title="数据与API">
                         <Menu.Item key={LINK.DataApiEtf}>
                             <Link to={LINK.DataApiEtf}>ETF</Link>
                         </Menu.Item>
@@ -68,10 +78,10 @@ class MyMenu extends Component {
                     </SubMenu>
 
                     <Menu.Item key={LINK.HelpCommunity}>
-                        <Link to={LINK.HelpCommunity}>帮助&社区</Link>
+                        <Link to={LINK.HelpCommunity}>帮助与社区</Link>
                     </Menu.Item>
                     <Menu.Item key={LINK.BusinessCooperation}>
-                        <Link to={LINK.BusinessCooperation}>商务&合作</Link>
+                        <Link to={LINK.BusinessCooperation}>商务与合作</Link>
                     </Menu.Item>
                     <Menu.Item key={LINK.About}>
                         <Link to={LINK.About}>关于我们</Link>

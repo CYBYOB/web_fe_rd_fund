@@ -4,17 +4,26 @@ import {
     BrowserRouter as Router,
 } from 'react-router-dom';
 
+import {
+    ConfigProvider
+} from 'antd';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+// 国际化（优化）：设置成中文的（结合 antd 的 ConfigProvider 组件）。
+import 'moment/locale/zh-cn';
+import locale from 'antd/lib/locale/zh_CN';
 
 import './index.css';
 
 
 ReactDOM.render(
     <React.StrictMode>
-        <Router>
-            <App />
-        </Router>
+        <ConfigProvider locale={locale}>
+            <Router>
+                <App />
+            </Router>
+        </ConfigProvider>
     </React.StrictMode>,
     document.getElementById('root')
 );
