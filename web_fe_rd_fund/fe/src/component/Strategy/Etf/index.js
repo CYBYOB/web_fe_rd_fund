@@ -6,11 +6,12 @@ import {
     DatePicker,
     Button,
 } from 'antd';
-import { myWarning } from "../../Common/Message";
+import {myWarning} from "../../Common/Message";
 
 // import $ from 'jquery';
 // import * as echarts from 'echarts';
 import moment from 'moment';
+import {etfList} from '../../../constant';
 
 import './index.less';
 
@@ -22,10 +23,12 @@ const { RangePicker } = DatePicker;
 const ETF_TAB_ONE = "ETF_TAB_ONE",
     ETF_TAB_GROUP = "ETF_TAB_GROUP";
 const dateFormat = 'YYYY-MM-DD';
+
 // ETF下拉框
-const ALL_ETF_LIST = [
-    {text: '大成深证成份ETF', value: '159943'},
-];
+const ALL_ETF_LIST = etfList.map(item => {
+    const {name: text, code: value} = item;
+    return {text, value};
+});
 
 class Etf extends Component {
     constructor(props) {
@@ -38,7 +41,7 @@ class Etf extends Component {
             }
         };
     }
-    
+
     // ETF tab 变更
     etfTabChange = (e) => {
         this.setState({
@@ -105,7 +108,10 @@ class Etf extends Component {
                         />
 
                         <Button type="primary" onClick={this.onClickConfirmBtn}>确定</Button>
-                        <Button onClick={this.onClickResetBtn}>重置</Button>
+                        {/* TODO：暂时去除 重置 按钮 */}
+                        {
+                            false && <Button onClick={this.onClickResetBtn}>重置</Button>
+                        }
                     </TabPane>
 
                     <TabPane tab="组合ETF" key={ETF_TAB_GROUP}>
