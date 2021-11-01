@@ -8,6 +8,7 @@ import {
 import Home from '../Home';
 
 // 策略回测
+import StrategyCommonView from '../Strategy/CommonView';
 import StrategyEtf from '../Strategy/Etf';
 import StrategyFund from '../Strategy/Fund';
 import StrategyStock from '../Strategy/Stock';
@@ -34,6 +35,7 @@ import './index.less';
 export const LINK = {
     Home: "/home",
     
+    StrategyCommonView: "/strategy/common-view",
     StrategyEtf: "/strategy/etf",
     StrategyFund: "/strategy/fund",
     StrategyStock: "/strategy/stock",
@@ -55,6 +57,7 @@ const ROUTE_LIST = [
     ["/", Home],
     [LINK.Home, Home],
 
+    [LINK.StrategyCommonView, StrategyCommonView],
     [LINK.StrategyEtf, StrategyEtf],
     [LINK.StrategyFund, StrategyFund],
     [LINK.StrategyStock, StrategyStock],

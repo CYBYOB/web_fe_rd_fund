@@ -48,6 +48,9 @@ class MyMenu extends Component {
                     </Menu.Item>
 
                     <SubMenu key="strategy" title="策略回测">
+                        <Menu.Item key={LINK.StrategyCommonView}>
+                            <Link to={LINK.StrategyCommonView}>常用视图</Link>
+                        </Menu.Item>
                         <Menu.Item key={LINK.StrategyEtf}>
                             <Link to={LINK.StrategyEtf}>ETF</Link>
                         </Menu.Item>
